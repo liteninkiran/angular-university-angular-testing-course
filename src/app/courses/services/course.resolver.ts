@@ -7,8 +7,8 @@ import {CoursesService} from "./courses.service";
 
 export function courseResolver(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Course> {
 
-  const coursesService = inject(CoursesService);
+    const coursesService = inject(CoursesService);
 
-  return coursesService.findCourseById(route.params['id']);
+    return coursesService.findCourseById(route.params['id']);
 
 }
