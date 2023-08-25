@@ -37,7 +37,13 @@ describe('CoursesService', () => {
     });
 
     it('should find a course by id', () => {
-        pending();
+        coursesService.findCourseById(12).subscribe((course: Course) => {
+            expect(course).toBeTruthy('Course not found');
+            expect(course.id).toBe(12, 'Incorrect course ID');
+        });
+        const req = httpTestingController.expectOne('/api/courses/12');
+        expect(req.request.method).toBe('GET');
+        req.flush(COURSES[12]);
     });
 
     it('should save the course data', () => {
@@ -53,6 +59,7 @@ describe('CoursesService', () => {
     });
 
     afterEach(() => {
+        httpTestingController.verify();
     });
 
 });
