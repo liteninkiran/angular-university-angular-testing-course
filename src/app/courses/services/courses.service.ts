@@ -12,23 +12,22 @@ export class CoursesService {
 
     }
 
-    findCourseById(courseId: number): Observable<Course> {
+    public findCourseById(courseId: number): Observable<Course> {
         return this.http.get<Course>(`/api/courses/${courseId}`);
     }
 
-    findAllCourses(): Observable<Course[]> {
+    public findAllCourses(): Observable<Course[]> {
         return this.http.get('/api/courses')
             .pipe(
                 map(res => res['payload'])
             );
     }
 
-
-    saveCourse(courseId: number, changes: Partial<Course>): Observable<Course> {
+    public saveCourse(courseId: number, changes: Partial<Course>): Observable<Course> {
         return this.http.put<Course>(`/api/courses/${courseId}`, changes);
     }
 
-    findLessons(
+    public findLessons(
         courseId: number, filter = '', sortOrder = 'asc',
         pageNumber = 0, pageSize = 3): Observable<Lesson[]> {
 
@@ -43,5 +42,4 @@ export class CoursesService {
             map(res => res["payload"])
         );
     }
-
 }
