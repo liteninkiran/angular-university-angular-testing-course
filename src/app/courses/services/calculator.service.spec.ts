@@ -1,5 +1,6 @@
-import { CalculatorService } from "./calculator.service";
-import { LoggerService } from "./logger.service";
+import { CalculatorService } from './calculator.service';
+import { LoggerService } from './logger.service';
+import { TestBed } from '@angular/core/testing';
 
 describe('CalculatorService', () => {
 
@@ -9,7 +10,13 @@ describe('CalculatorService', () => {
     beforeEach(() => {
         // Arrange
         loggerSpy = jasmine.createSpyObj('LoggerService', ['log']);
-        calculator = new CalculatorService(loggerSpy);
+        TestBed.configureTestingModule({
+            providers: [
+                CalculatorService,
+                { provide: LoggerService, useValue: loggerSpy },
+            ],
+        });
+        calculator = TestBed.inject(CalculatorService);
     });
 
     it('should add two numbers', () => {
@@ -30,25 +37,3 @@ describe('CalculatorService', () => {
         expect(loggerSpy.log).toHaveBeenCalledTimes(1);
     });
 });
-
-
-/*
-
-Hello everyone,
-
-A quick warning about a minor change on the API of the test bed.
-In the next video, you will notice that TestBed.get()  is called.
-But you should use the new .inject() API instead:
-
-    coursesService = TestBed.inject(CoursesService)
-
-All the concepts taught in the course regarding testing Angular components are still valid.
-Let me know if you have any questions, and please enjoy the course.
-
-Kind Regards,
-
-Vasco, Angular University
-
-*/
-
-
