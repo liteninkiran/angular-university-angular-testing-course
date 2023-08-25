@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoursesCardListComponent } from './courses-card-list.component';
 import { sortCoursesBySeqNo } from '../home/sort-course-by-seq';
 import { CoursesModule } from '../courses.module';
@@ -10,16 +10,26 @@ import { By } from '@angular/platform-browser';
 
 describe('CoursesCardListComponent', () => {
 
-    beforeEach(() => {
+    let component: CoursesCardListComponent;
+    let fixture: ComponentFixture<CoursesCardListComponent>;
+    let el: DebugElement;
+
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [
                 CoursesModule,
             ],
+        })
+        .compileComponents()
+        .then(() => {
+            fixture = TestBed.createComponent(CoursesCardListComponent);
+            component = fixture.componentInstance;
+            el = fixture.debugElement;
         });
-    });
+    }));
 
     it('should create the component', () => {
-        pending();
+        expect(component).toBeTruthy();
     });
 
     it('should display the course list', () => {
