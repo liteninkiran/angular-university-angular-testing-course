@@ -30,3 +30,25 @@ describe('CalculatorService', () => {
         expect(loggerSpy.log).toHaveBeenCalledTimes(1);
     });
 });
+
+
+/*
+
+Hello everyone,
+
+A quick warning about a minor change on the API of the test bed.
+In the next video, you will notice that TestBed.get()  is called.
+But you should use the new .inject() API instead:
+
+    coursesService = TestBed.inject(CoursesService)
+
+All the concepts taught in the course regarding testing Angular components are still valid.
+Let me know if you have any questions, and please enjoy the course.
+
+Kind Regards,
+
+Vasco, Angular University
+
+*/
+
+
