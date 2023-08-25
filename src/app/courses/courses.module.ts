@@ -66,8 +66,7 @@ import { CoursesService } from './services/courses.service';
     providers: [
         CoursesService,
     ],
-}) export class CoursesModule {
-
-
+})
+export class CoursesModule {
 
 }
