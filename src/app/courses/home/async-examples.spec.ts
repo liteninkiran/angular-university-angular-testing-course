@@ -66,29 +66,3 @@ describe('Async Testing Examples', () => {
         expect(test).toBe(true);
     }));
 });
-
-
-/*
-
-IMPORTANT - async() renamed to waitForAsync()
-
-Hello everyone,
-
-The next video of this course cover the Angular waitForAsync() zone. 
-You will notice in the video that this was recorded while the zone 
-name was still async(), which was the name for this same zone used 
-in older Angular versions. Whenever you see the async() zone being 
-used in the course, please use waitForAsync() instead and everything 
-will work just like in the video, and all the concepts explained in 
-the video still apply. If you are wondering why this renaming was 
-necessary, the intention was to avoid confusion between the old name 
-of of zone (async) and the Typescript async / await syntax.
-
-Kind Regards,
-
-Vasco
-
-Angular University
-
-*/
-
